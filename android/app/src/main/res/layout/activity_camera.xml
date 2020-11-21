@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    tools:context=".CameraActivity">
+
+
+    <com.otaliastudios.cameraview.CameraView
+        android:id="@+id/camera_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/camera_buttons"
+        android:keepScreenOn="true"
+        app:cameraAudio="off"
+        app:cameraFlash="auto"
+        app:cameraMode="picture"
+        app:cameraPictureFormat="jpeg"
+        app:cameraRequestPermissions="true" />
+
+    <ImageView
+        android:id="@+id/image_preview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/preview_buttons"
+        android:background="@android:color/black"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        android:visibility="invisible" />
+
+
+    <LinearLayout
+        android:id="@+id/camera_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal|center_vertical"
+        android:paddingVertical="20dp">
+
+        <ImageButton
+            android:id="@+id/button_switch_flashlight"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="20dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/round_button"
+            android:backgroundTint="@android:color/white"
+            android:onClick="switchFlashMode"
+            android:padding="10dp"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/flash_off"
+            android:tint="@android:color/white" />
+
+        <ImageButton
+            android:id="@+id/button_take"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/round_button"
+            android:backgroundTint="@android:color/white"
+            android:onClick="takePicture"
+            android:padding="10dp"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/capture_icon"
+            android:tint="@android:color/white" />
+
+        <ImageButton
+            android:id="@+id/button_switch_camera"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="20dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/round_button"
+            android:backgroundTint="@android:color/white"
+            android:onClick="switchCamera"
+            android:padding="10dp"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/switch_camera_icon"
+            android:tint="@android:color/white" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/preview_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/black"
+        android:gravity="center_horizontal|center_vertical"
+        android:paddingVertical="20dp"
+        android:visibility="gone">
+
+        <ImageButton
+            android:id="@+id/button_ok"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="40dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/round_button"
+            android:backgroundTint="@android:color/white"
+            android:onClick="sendFile"
+            android:padding="10dp"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/check_icon"
+            android:tint="@android:color/white" />
+
+        <ImageButton
+            android:id="@+id/button_cancel"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/round_button"
+            android:backgroundTint="@android:color/white"
+            android:onClick="onCancel"
+            android:padding="10dp"
+            android:scaleType="fitCenter"
+
+            android:src="@mipmap/cancel_icon"
+            android:tint="@android:color/white" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/progress_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#881B1A1A"
+        android:gravity="center"
+        android:visibility="gone"
+        android:orientation="vertical">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:progressTint="#FFFFFF" />
+    </LinearLayout>
+
+
+</RelativeLayout>
